@@ -21,3 +21,24 @@
 
 en:
   hello: "Hello world"
+  framgia_food_and_drinks: "Foods & Drinks"
+  layouts:
+    header:
+      home: "Home"
+      profile: "Profile"
+      settings: "Settings"
+      logout: "Logout"
+      account: "Account"
+    footer:
+      about: "About"
+      news: "News"
+      copyright: "Copyright © Your Website 2016"
+  static_pages:
+    about:
+      about_title: "About"
+      page_content: "This is About page"
+    news:
+      news_title: "News"
+      page_content: "This is news pages"
+    home:
+      home_title: "Home"
