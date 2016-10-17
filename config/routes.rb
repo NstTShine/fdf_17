@@ -3,4 +3,7 @@ Rails.application.routes.draw do
   root "static_pages#show", page: "home"
   get "/*page" => "static_pages#show"
 
+  resources :users, only: :show
+  resources :products
+
 end

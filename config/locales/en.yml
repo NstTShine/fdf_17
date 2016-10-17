@@ -20,6 +20,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  time:
+    formats:
+      short_date: "%m/%d/%Y"
+      long_datetime:  "%B %d, %Y, at %r"
   hello: "Hello world"
   framgia_food_and_drinks: "Foods & Drinks"
   layouts:
@@ -42,3 +46,21 @@ en:
       page_content: "This is news pages"
     home:
       home_title: "Home"
+  users:
+    show:
+      profile: "Your Profile"
+      fullname: "Full Name: "
+      email: "Email: "
+      phone_no: "Phone Number: "
+      address: "Address: "
+      dob: "Date of Birth: "
+      empty: "Empty"
+  products:
+    index:
+      search_by_name: "Enter product name..."
+      all_categories: "All Categories"
+      bnt_search: "Search"
+      price: "Price"
+      not_found: "Not found..."
+      choose: "Choose"
+

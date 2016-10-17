@@ -1,5 +1,6 @@
 class Product < ActiveRecord::Base
 
+  mount_uploader :image, ImageUploader
   belongs_to :category
   has_many :comments
   has_many :order_details
