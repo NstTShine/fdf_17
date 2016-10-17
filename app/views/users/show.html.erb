@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="col-sm-12 content">
+    <div class="col-sm-4">
+      <div class="panel panel-default devise-bs">
+        <div class="panel-heading">
+          <h4><i class="fa fa-user"></i><%= t ".profile" %></h4>
+        </div>
+        <div class="panel-body">
+            <ul>
+              <p><%= t ".fullname" %></p>
+              <%= @user.fullname %>
+            </ul>
+            <ul>
+              <p><%= t ".email" %></p>
+              <%= @user.email %>
+            </ul>
+            <ul>
+              <p><%= t ".dob" %></p>
+              <%= @user.dateofbirth.present? ? @user.dateofbirth
+                .strftime(t "time.formats.short_date") : t(".empty") %>
+            </ul>
+            <ul>
+              <p><%= t ".phone_no" %></p>
+              <%= @user.phone_number.present? ? @user.phone_number : t(".empty") %>
+            </ul>
+            <ul>
+              <p><%= t ".address" %></p>
+              <%= @user.address.present? ? @user.address : t(".empty") %>
+            </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
