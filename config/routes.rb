@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   get "/*page" => "static_pages#show"
 
   resources :users, only: :show
+  resources :products
 
 end

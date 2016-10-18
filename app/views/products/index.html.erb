@@ -1,0 +1,64 @@
+<div class="portlet box lst-product">
+  <div class="portlet-title">
+    <div class="caption">
+      <span class="caption-title">
+      </span>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+  <div class="portlet-body">
+    <div class="search-container">
+      <%= search_form_for @q do |f| %>
+        <div class="field">
+          <div class="col-md-3 no-padding-right">
+            <%= f.text_field :name_cont, class: "form-control",
+              placeholder: t(".search_by_name") %>
+          </div>
+          <div class="col-sm-3">
+          <%= f.select_tag :category_id_eq, options_from_collection_for_select(@categories, :id, :title_name, @q.category_id_eq), {include_blank: t(".all_categories"), class:"form-control",
+            onchange: "this.form.submit();"} %>
+          </div>
+          <%= submit_tag (t".bnt_search"),
+            class: "btn btn-default btn-search-top clear" %>
+        </div>
+        </div>
+     <% end %>
+    </div>
+    <div class="data-container">
+      <div class="list-products row ls-products">
+        <% @products.each do |product| %>
+          <div class="col-item col-md-3 col-sm-4 col-xs-2 pro-item">
+            <div class="item" >
+              <div class="img-product">
+                <%= link_to product_path product.id do %>
+                  <%= image_tag product.image.url.nil? ? "no_image.png" : product.image %>
+                <% end %>
+              </div>
+              <div class="detail-product">
+                <h4>
+                  <%= link_to product_path product.id do %>
+                    <%= product.name %>
+                  <% end %>
+                </h4>
+                <p class="price text-danger">
+                  <%= t ".price"%>
+                  <%= product.price.nil? ? t(".not_found") : "#{product.price} $" %>
+                </p>
+                <p class="add-cart">
+                  <%= link_to t(".choose"), "javascript:;",
+                    class: "btn btn-success btn-add-cart", data: {id: product.id,
+                    url: "#"} %>
+                <p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="row wrap-paging">
+        <div class="col-sm-12 text-center">
+          <%= paginate @products, theme: "twitter-bootstrap-3" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
