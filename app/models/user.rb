@@ -11,5 +11,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, omniauth_providers: [:facebook]
 
+  enum role: [:admin, :member, :guest]
+
   ratyrate_rater
 end

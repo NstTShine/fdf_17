@@ -26,6 +26,7 @@ source 'https://rubygems.org'
   gem "ransack"
   gem "ratyrate"
   gem "social-share-button"
+  gem "cancancan", "~> 1.10"
 
 group :development do
     gem "web-console", "~> 2.0"

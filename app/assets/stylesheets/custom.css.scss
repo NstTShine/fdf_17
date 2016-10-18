@@ -32,6 +32,10 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1;
 }
 
+.fixed-h1 {
+  font-size: 50px;
+}
+
 h1 {
   font-size: 3em;
   letter-spacing: -2px;
@@ -175,6 +179,14 @@ ol, ul {
   height: 41px;
   background-color: #d11920;
 }
+.fixed {
+    left: 0;
+    position: fixed !important;
+    top: 0;
+    width: 100%;
+    z-index: 99;
+}
+
 .clearfix {
   display: block;
 }
