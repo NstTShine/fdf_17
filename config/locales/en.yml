@@ -55,4 +55,12 @@ en:
       address: "Address: "
       dob: "Date of Birth: "
       empty: "Empty"
+  products:
+    index:
+      search_by_name: "Enter product name..."
+      all_categories: "All Categories"
+      bnt_search: "Search"
+      price: "Price"
+      not_found: "Not found..."
+      choose: "Choose"
 

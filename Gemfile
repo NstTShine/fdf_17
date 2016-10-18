@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
   gem "rails", "4.2.6"
   gem "devise"
+  gem "kaminari"
+  gem "bootstrap-kaminari-views"
   gem "omniauth-twitter"
   gem "omniauth-facebook"
   gem "bcrypt", "3.1.7"
@@ -19,6 +21,11 @@ source 'https://rubygems.org'
   gem "jquery-rails"
   gem "twitter-bootstrap-rails"
   gem "devise-bootstrap-views"
+  gem "bootstrap-datepicker-rails"
+  gem "carrierwave"
+  gem "ransack"
+  gem "ratyrate"
+  gem "social-share-button"
 
 group :development do
     gem "web-console", "~> 2.0"
