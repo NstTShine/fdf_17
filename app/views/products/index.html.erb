@@ -22,7 +22,7 @@
             class: "btn btn-default btn-search-top clear" %>
         </div>
         </div>
-     <% end %>
+      <% end %>
     </div>
     <div class="data-container">
       <div class="list-products row ls-products">
@@ -31,7 +31,8 @@
             <div class="item" >
               <div class="img-product">
                 <%= link_to product_path product.id do %>
-                  <%= image_tag product.image.url.nil? ? "no_image.png" : product.image %>
+                  <%= image_tag product.image.url.nil? ? "no_image.png" : product
+                  .image %>
                 <% end %>
               </div>
               <div class="detail-product">
