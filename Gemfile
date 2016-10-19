@@ -24,6 +24,8 @@ source 'https://rubygems.org'
   gem "bootstrap-datepicker-rails"
   gem "carrierwave"
   gem "ransack"
+  gem "ratyrate"
+  gem "social-share-button"
 
 group :development do
     gem "web-console", "~> 2.0"

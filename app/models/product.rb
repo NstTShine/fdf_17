@@ -9,4 +9,6 @@ class Product < ActiveRecord::Base
   validates :quantity, numericality: true, allow_nil: true
   validates :price, numericality: true, allow_blank: true
   validates :category_id, presence: true
+
+  ratyrate_rateable "quality"
 end

@@ -1,0 +1,33 @@
+<% provide :title, t("products.show") %>
+<div class="list-group-item">
+  <div class="row">
+    <div class="col-md-4 left">
+      <%= image_tag @product.image.url.nil? ?
+        "no_image.png" : @product.image %>
+    </div>
+    <div class="col-md-3">
+    <span class="badge product_show"> <%= t "products.price" %>:
+      <%= @product.price %>
+    </span><br>
+    <span class="label label-success product_show">
+      <%= t "products.name" %>:<%= @product.name %>
+  </span><br>
+      <p><%= @product.description %></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-1 col-md-offset-2">
+      <%= link_to "HOME", root_path %>
+    </div>
+    <div class="col-md-3">
+      <%= rating_for @product, "quality", star: 5, disable_after_rate: false,
+        enable_half: true %>
+    </div>
+    <div class="col md-1">
+      <span class="label label-info"> <%= t "quality.avg" %>:
+        <%= (@product.average("quality").avg.round 3)if
+          @product.average("quality") != nil %>
+      </span>
+    </div>
+  </div>
+</div>
