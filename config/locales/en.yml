@@ -63,4 +63,11 @@ en:
       price: "Price"
       not_found: "Not found..."
       choose: "Choose"
+    show:
+      not_found: "Not found..."
+      page_title: "Show Product"
+      product_name: "Product: "
+      back: "Back"
+      users_comment: "Others User's comments: "
+      rate_avg: "Rate AVG"
 

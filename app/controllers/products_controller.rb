@@ -9,6 +9,9 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new product: @product
+    @comments = @product.comments.newest.page(params[:page])
+      .paginate page: params[:page], per_page: Settings.comment.per_page
   end
 
 end
