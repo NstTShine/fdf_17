@@ -1,33 +1,57 @@
-<% provide :title, t("products.show") %>
-<div class="list-group-item">
+<% provide :title, t(".page_title") %>
+<div>
   <div class="row">
-    <div class="col-md-4 left">
+    <div class="col-md-3 left">
       <%= image_tag @product.image.url.nil? ?
         "no_image.png" : @product.image %>
     </div>
     <div class="col-md-3">
-    <span class="badge product_show"> <%= t "products.price" %>:
-      <%= @product.price %>
-    </span><br>
-    <span class="label label-success product_show">
-      <%= t "products.name" %>:<%= @product.name %>
-  </span><br>
-      <p><%= @product.description %></p>
+      <div class="product-price">
+        <span class="badge"><%= t "Price" %>:</span>
+          <a class="text-danger">
+            <%= @product.price.nil? ? t(".not_found") : "#{@product.price} $" %>
+          </a>
+          <br>
+      </div>
+      <div class="product-name">
+        <p>
+        <span class="label label-success"><%= t".product_name" %></span><span><%= @product.name %></p>
+      </div>
+      <div class="product-description">
+        <p>
+          <span class="label label-success"><%= t".product_description" %></span>
+          <span><%= @product.description %></span>
+        </p>
+      </div>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-1 col-md-offset-2">
-      <%= link_to "HOME", root_path %>
+    <div class="col-md-1 col-md-offset-2 size-text">
+      <%= link_to t(".back"), root_path %>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2">
       <%= rating_for @product, "quality", star: 5, disable_after_rate: false,
         enable_half: true %>
     </div>
-    <div class="col md-1">
-      <span class="label label-info"> <%= t "quality.avg" %>:
-        <%= (@product.average("quality").avg.round 3)if
-          @product.average("quality") != nil %>
+    <div class="col md-2 size-text">
+      <span class="label label-info"> <%= t".rate_avg" %>:
+        <%= unless @product.average("quality").nil?
+          (@product.average("quality").avg.round Settings.rating.per_avg)
+        end %>
       </span>
     </div>
+  </div>
+</div>
+<br><br><br>
+<div class="title-show">
+  <%=  t(".users_comment") %><%= @comments.size %>
+</div>
+<div class="main-show-comment box_width_common">
+  <%= render "comments/comment" %>
+  <%= paginate @comments %>
+  <div>
+    <% unless current_user.nil? %>
+      <%= render "comments/form" %>
+    <% end %>
   </div>
 </div>

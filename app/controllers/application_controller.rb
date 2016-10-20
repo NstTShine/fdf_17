@@ -4,12 +4,17 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :load_categories
 
   def load_product
     @product = Product.find_by id: params[:id]
     if @product.nil?
       render file: "public/404.html", status: :not_found, layout: true
     end
+  end
+
+  def load_categories
+    @categories = Category.all
   end
 
   private
