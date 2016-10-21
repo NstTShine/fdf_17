@@ -15,14 +15,14 @@
               placeholder: t(".search_by_name") %>
           </div>
           <div class="col-sm-3">
-          <%= f.select_tag :category_id_eq, options_from_collection_for_select(@categories, :id, :title_name, @q.category_id_eq), {include_blank: t(".all_categories"), class:"form-control",
-            onchange: "this.form.submit();"} %>
+            <%= f.collection_select :category_id_eq, @categories, :id,
+              :title_name, {include_blank: t("all")}, class: "form-control" %>
           </div>
           <%= submit_tag (t".bnt_search"),
             class: "btn btn-default btn-search-top clear" %>
         </div>
         </div>
-     <% end %>
+      <% end %>
     </div>
     <div class="data-container">
       <div class="list-products row ls-products">
@@ -31,7 +31,8 @@
             <div class="item" >
               <div class="img-product">
                 <%= link_to product_path product.id do %>
-                  <%= image_tag product.image.url.nil? ? "no_image.png" : product.image %>
+                  <%= image_tag product.image.url.nil? ? "no_image.png" : product
+                  .image %>
                 <% end %>
               </div>
               <div class="detail-product">

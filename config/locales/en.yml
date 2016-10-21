@@ -31,8 +31,13 @@ en:
       home: "Home"
       profile: "Profile"
       settings: "Settings"
+      login: "Login"
       logout: "Logout"
       account: "Account"
+      order: "Order"
+      promotion: "Promotion"
+      store: "Store"
+      franchising: "Franchising"
     footer:
       about: "About"
       news: "News"
@@ -70,4 +75,3 @@ en:
       back: "Back"
       users_comment: "Others User's comments: "
       rate_avg: "Rate AVG"
-

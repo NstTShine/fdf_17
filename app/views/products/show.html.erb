@@ -5,16 +5,24 @@
       <%= image_tag @product.image.url.nil? ?
         "no_image.png" : @product.image %>
     </div>
-    <div class="col-md-3 size-text">
-      <span class="badge size-text"><%= "Price" %>:</span>
-        <a class="text-danger">
-        <%= @product.price.nil? ? t(".not_found") : "#{@product.price} $" %>
-        </a><br>
-      <span class="label label-success">
-        <%= t".product_name" %></span>
-        <%= @product.name %>
-        <br>
-        <p><%= @product.description %></p>
+    <div class="col-md-3">
+      <div class="product-price">
+        <span class="badge"><%= t "Price" %>:</span>
+          <a class="text-danger">
+            <%= @product.price.nil? ? t(".not_found") : "#{@product.price} $" %>
+          </a>
+          <br>
+      </div>
+      <div class="product-name">
+        <p>
+        <span class="label label-success"><%= t".product_name" %></span><span><%= @product.name %></p>
+      </div>
+      <div class="product-description">
+        <p>
+          <span class="label label-success"><%= t".product_description" %></span>
+          <span><%= @product.description %></span>
+        </p>
+      </div>
     </div>
   </div>
   <div class="row">
