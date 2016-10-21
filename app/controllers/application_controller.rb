@@ -13,6 +13,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def load_category
+    @category = Category.find_by id: params[:id]
+  end
+
   def load_categories
     @categories = Category.all
   end

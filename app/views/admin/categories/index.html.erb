@@ -1,0 +1,16 @@
+<% provide title: "Index categories" %>
+<%= link_to "Add new", new_admin_category_path,
+  {class: "btn btn-primary"} %>
+<% if @categories.any? %>
+  <table class="table table-hover">
+    <tr>
+      <th><%= "Category name" %></th>
+      <th><%= "Description" %></th>
+      <th></th>
+    </tr>
+    <%= render "category" %>
+  </table>
+  <div class="text-center">
+    <%= paginate @categories %>
+  </div>
+<% end %>

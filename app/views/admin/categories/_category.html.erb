@@ -1,0 +1,23 @@
+<% @categories.each_with_index do |category, index| %>
+  <tr class=" <%= (index + 1).even? ? "success": "danger" %>">
+    <td class="course-name">
+      <%= category.title_name %>
+    </td>
+    <td class="course-name">
+      <%= category.description %>
+    </td>
+    <td>
+      <%= link_to edit_admin_category_path(category),
+        class: "btn btn-default btn-xs" do %>
+        <span class="glyphicon glyphicon-edit"></span>
+          <%= "Edit" %>
+      <% end %>
+      <%= link_to admin_category_path(category), method: :delete,
+        class: "btn btn-danger btn-xs", data: {confirm:
+        "Are you sure ???"} do %>
+        <span class="glyphicon glyphicon-remove"></span>
+          <%= "Delete" %>
+      <% end %>
+    </td>
+  </tr>
+<% end %>

@@ -20,6 +20,8 @@
           </div>
           <%= submit_tag (t".bnt_search"),
             class: "btn btn-default btn-search-top clear" %>
+          <%= link_to "New", new_admin_product_path,
+                    {class: "btn btn-primary"} %>
         </div>
         </div>
       <% end %>
@@ -46,10 +48,13 @@
                   <%= product.price.nil? ? t(".not_found") : "#{product.price} $" %>
                 </p>
                 <p class="add-cart">
-                  <%= link_to t(".choose"), "javascript:;",
-                    class: "btn btn-success btn-add-cart", data: {id: product.id,
-                    url: "#"} %>
                   <%= link_to t(".edit"), edit_admin_product_path(product) %>
+                  <%= link_to admin_product_path(product), method: :delete,
+                    class: "btn btn-danger btn-xs", data: {confirm:
+                    "Are you sure ???"} do %>
+                    <span class="glyphicon glyphicon-remove"></span>
+                      <%= "Delete" %>
+                  <% end %>
                 <p>
               </div>
             </div>

@@ -1,0 +1,42 @@
+<% provide :title, "New Product" %>
+<h1 class="fixed-h1"><%= "New Product" %></h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for [:admin, @product] do |f| %>
+
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :category %>
+        <%= f.select :category_id, @categories.collect{|p| [p.title_name, p.id]},
+          {include_blank: false}, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :price %>
+        <%= f.number_field :price, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :quantity %>
+        <%= f.number_field :quantity, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :description %>
+        <%= f.text_area :description, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.file_field :image, accept: "image/jpeg, image/gif, image/png" %>
+      </div>
+
+      <%= f.submit "Create", class: "btn btn-primary" %>
+      <%= link_to "Cancel", admin_products_path, class: "btn btn-default" %>
+    <% end %>
+  </div>
+</div>

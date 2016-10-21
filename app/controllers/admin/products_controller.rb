@@ -1,5 +1,6 @@
 class Admin::ProductsController < ApplicationController
-  before_action :load_product, only: [:show, :edit, :update]
+  load_and_authorize_resource
+  before_action :load_product, except: [:show, :new, :create, :index]
 
   def index
     if params[:category_id_eq].present?
@@ -22,6 +23,31 @@ class Admin::ProductsController < ApplicationController
       render :edit
     end
   end
+
+  def destroy
+    if @product.destroy
+      flash[:success] = "delete successfully!"
+    else
+      flash[:success] = "update fail !"
+    end
+    redirect_to :back
+  end
+
+  def new
+    @product = Product.new
+  end
+
+  def create
+    @product = Product.new product_params
+    if @product.save
+      flash[:success] = "create successfully"
+      redirect_to admin_products_path
+    else
+      flash[:danger] = "create failed!"
+      render :new
+    end
+  end
+
 
   private
   def product_params
