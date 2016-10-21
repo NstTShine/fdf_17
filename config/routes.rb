@@ -9,4 +9,8 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  namespace :admin do
+    resources :products
+  end
+
 end

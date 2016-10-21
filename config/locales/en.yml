@@ -20,6 +20,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  admin_control:
+    product:
+      update_success: "Update successfully!"
+      update_fail: "Update fail, please check again !"
   time:
     formats:
       short_date: "%m/%d/%Y"
@@ -75,3 +79,18 @@ en:
       back: "Back"
       users_comment: "Others User's comments: "
       rate_avg: "Rate AVG"
+  admin:
+    products:
+      index:
+        search_by_name: "Enter product name..."
+        all_categories: "All Categories"
+        bnt_search: "Search"
+        price: "Price"
+        not_found: "Not found..."
+        choose: "Choose"
+        edit: "Edit"
+      edit:
+        edit_product_title: "Admin Edit Product"
+        edit_product: "Edit Product"
+        update: "Update"
+        cancel: "Cancel"
