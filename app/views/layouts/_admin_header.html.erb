@@ -1,0 +1,42 @@
+<div id="top" class="fixed">
+  <div class="wrapper clearfix">
+    <nav class="top-bar-section clearfix">
+      <ul class="left clearfix">
+        <li class="show-mobile">
+          <a href="#sidebar" class="icon i-mobile-menu"> </a>
+        </li>
+        <%= link_to (t "framgia_food_and_drinks"), "#", id: "logo" %>
+        <li class="item01 home hide-mobile">
+          <a href="<%= admin_products_path %>" class="">
+            <i></i>
+          </a>
+        </li>
+        <% if user_signed_in? %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <%= "Manage" %> <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Products", admin_products_path %></li>
+              <li><%= link_to "Categories", admin_categories_path %></li>
+              <li><%= link_to "Order", "#" %></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <%= t".account" %> <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to t(".profile"), current_user %></li>
+              <li><%= link_to t(".settings"), edit_user_registration_path %></li>
+              <li class="divider"></li>
+              <li><%= link_to t(".logout"), destroy_user_session_path, method: :delete %></li>
+            </ul>
+          </li>
+        <% else %>
+          <li><%= link_to (t ".login"),  new_user_session_path %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</div>

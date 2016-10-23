@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :load_product, only: [:show, :edit]
+  before_action :check_user, only: :index
 
  def index
     if params[:category_id_eq].present?

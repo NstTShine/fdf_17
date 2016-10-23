@@ -6,6 +6,16 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :load_categories
 
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, :alert => exception.message
+  end
+
+  def check_user
+    if user_signed_in? && current_user.role == "admin"
+      redirect_to admin_products_path
+    end
+  end
+
   def load_product
     @product = Product.find_by id: params[:id]
     if @product.nil?

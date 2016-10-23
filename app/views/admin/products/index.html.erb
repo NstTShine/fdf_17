@@ -8,7 +8,7 @@
   </div>
   <div class="portlet-body">
     <div class="search-container">
-      <%= search_form_for @q do |f| %>
+      <%= search_form_for [:admin, @q] do |f| %>
         <div class="field">
           <div class="col-md-3 no-padding-right">
             <%= f.text_field :name_cont, class: "form-control",
@@ -20,8 +20,8 @@
           </div>
           <%= submit_tag (t".bnt_search"),
             class: "btn btn-default btn-search-top clear" %>
-          <%= link_to "New", new_admin_product_path,
-                    {class: "btn btn-primary"} %>
+          <%= link_to "New Product", new_admin_product_path,
+            {class: "btn btn-primary"} %>
         </div>
         </div>
       <% end %>

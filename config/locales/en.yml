@@ -45,6 +45,13 @@ en:
     footer:
       about: "About"
       news: "News"
+    admin_header:
+      profile: "Profile"
+      settings: "Settings"
+      login: "Login"
+      logout: "Logout"
+      account: "Account"
+      order: "Order"
       copyright: "Copyright © Your Website 2016"
   static_pages:
     about:
